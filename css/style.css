@@ -1,0 +1,54 @@
+.serve{
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-top: 30px;
+    color: darkgrey;
+}
+h1{
+    margin-top: 50px;
+    font-size: 70px;
+}
+
+.photo{
+    margin-top: 50px; 
+}
+
+.main-content{
+    margin-top: 100px; 
+}
+.galleryfooter{
+  margin-top: 200px; 
+}
+.galleryfooterabout{
+  margin-top: 300px; 
+}
+
+.cascading-right {
+    margin-right: -50px;
+  }
+  @media (max-width: 991.98px) {
+    .cascading-right {
+      margin-right: 0;
+    }
+  }
+
+  .drop-down02{
+    position:relative;
+  }
+  .drop-down02 .sub-menu02
+  {
+    position: absolute !important;
+    left: 100%;
+    top: 0;
+  }
+  
+  .drop-down02 .dropdown-toggle{
+    padding:.25rem 1.1rem !important;
+  }
+  
+  @media screen and (max-width :767px)
+  {
+    .drop-down02 .sub-menu02
+    {
+      position:static !important;
+    }
+  }
