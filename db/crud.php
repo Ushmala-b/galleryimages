@@ -64,9 +64,6 @@
 
         }
 
-
-
-
         public function getuserprofile(){
             try{
                 $sql = "SELECT * FROM userprofile";
@@ -142,9 +139,13 @@
             }
         }
 
-         public function getimgdata(){
+         public function getimgdata($catId){
             try{
                 $sql = "SELECT * FROM imgdata";
+                if($catId) {
+                    $sql .= " WHERE cat_id =".$catId;
+                }
+                //echo $sql; die;
                 $result = $this->db->query($sql);
                 return $result;
             }catch (PDOException $e) {
@@ -153,7 +154,7 @@
            }
            
         }
-
+        
 
         public function getimgdatas($cat_id = NULL){
             try{
@@ -171,61 +172,14 @@
         }
 
         
-        public function getimgdata1(){
+       public function getimgdataDetails($id){
             try{
-               $sql =" SELECT * FROM `imgdata` WHERE cat_id=1";
-                $result = $this->db->query(  $sql);
-                return $result;
-            }catch (PDOException $e) {
-                echo $e->getMessage();
-                return false;
-           }
-           
-        }
-        public function getimgdata2(){
-            try{
-               $sql =" SELECT * FROM `imgdata` WHERE cat_id=2";
-                $result = $this->db->query(  $sql);
-                return $result;
-            }catch (PDOException $e) {
-                echo $e->getMessage();
-                return false;
-           }
-           
-        }
-        public function getimgdata3(){
-            try{
-               $sql =" SELECT * FROM `imgdata` WHERE cat_id=3";
-                $result = $this->db->query(  $sql);
-                return $result;
-            }catch (PDOException $e) {
-                echo $e->getMessage();
-                return false;
-           }
-           
-        }
-        public function getimgdata4(){
-            try{
-               $sql =" SELECT * FROM `imgdata` WHERE cat_id=4";
-                $result = $this->db->query(  $sql);
-                return $result;
-            }catch (PDOException $e) {
-                echo $e->getMessage();
-                return false;
-           }
-           
-        }
-
-
-
-        public function getimgdataDetails($id){
-            try{
-                 $sql = "select * from imgdata a inner join category s on a.cat_id = s.cat_id 
-                 where image_id = :id";
+                 $sql = "select * from imgdata  where cat_id = :id";
                  $stmt = $this->db->prepare($sql);
                  $stmt->bindparam(':id', $id);
                  $stmt->execute();
                  $result = $stmt->fetch();
+                 print_r($result); die;
                  return $result;
             }catch (PDOException $e) {
                  echo $e->getMessage();
@@ -248,6 +202,20 @@
             }
             
         }
+
+        public function deletecategory($id){
+            try{
+                 $sql = "delete from category where cat_id = :id";
+                 $stmt = $this->db->prepare($sql);
+                 $stmt->bindparam(':id', $id);
+                 $stmt->execute();
+                 return true;
+             }catch (PDOException $e) {
+                 echo $e->getMessage();
+                 return false;
+             }
+         }
+        
 
     }
 ?>

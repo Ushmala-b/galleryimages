@@ -10,7 +10,9 @@
     
     $results1 = $crud->getcategory();
 
-?>
+
+
+  ?>
 
     
 
@@ -103,3 +105,28 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="galleryfooter"></div>
+
+
+<?php require_once 'includes/footer.php' ?>

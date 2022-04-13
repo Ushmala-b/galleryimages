@@ -9,7 +9,8 @@
         $lname = $_POST['lastname'];
         $dob = $_POST['dob'];
         $email = $_POST['email'];
-        $password = $_POST['password'];
+        $password= $_POST['password'];
+       // $password = md5($_POST['password']);
         $contact = $_POST['phone'];
         $user_type = 'user';
      
@@ -22,13 +23,11 @@
         $isSuccess = $crud->insertuserprofile($fname, $lname, $dob, $email,$password,$contact,$destination,'user');
 
         if($isSuccess){
-           
-            include 'includes/successmessage.php';
+          include 'includes/successmessage.php';
         }
         else{
             include 'includes/errormessage.php';
         }
-
     }
 ?>
     <div class="d-flex justify-content-center">
@@ -53,17 +52,13 @@
         </div>
     </div>
     </div>
-    </div>
+    
 
     <div class="d-flex justify-content-center">
-    <div class="pt-3 mb-4">
-    <button class="btn btn-dark btn-lg btn-block" type="button" onclick="document.location='Login.php'">Login</button>
-    </div>
+        <div class="pt-3 mb-4">
+          <button class="btn btn-dark btn-lg btn-block" type="button" onclick="document.location='Login.php'">Login</button>
+        </div>
     </div>
 
-    
-  
-
-    </div>
-    <div class="galleryfooter"></div>
+<div class="galleryfooter"></div>
 <?php require_once 'includes/footer.php'; ?>

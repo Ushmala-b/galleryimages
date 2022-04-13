@@ -28,37 +28,35 @@ include_once 'includes/session.php';
   <header class="p-3 bg-dark text-white">
   
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
-        </a>
-        <a class="navbar-brand text-warning ">Gallery</a>
+        
+        <a  href="gallery.php" class="navbar-brand text-warning px-5 ">Gallery</a>
          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li><a href="index.php" class="nav-link px-2 text-white">Home</a></li>
          
          <li><a href="about.php" class="nav-link px-2 text-white">About</a></li>
+       
 
+
+        
          <li>       
         <?php 
-              if(isset( $_SESSION['usertype']) && $_SESSION['usertype']=='user'){
+              if(isset( $_SESSION['usertype']) && $_SESSION['usertype']=='admin'){
           ?>
-      <a class="nav-link px-2 text-white" href="category.php">Category</a>
+      <a class="nav-link px-2 text-white" href="addcategory.php">Category</a>
       <?php } ?>  
-         </li>
-         
-
-         <li>
-         <?php 
-             if(isset( $_SESSION['usertype']) && $_SESSION['usertype']=='admin'){
-          ?>
-        <a class="nav-link px-2 text-white" href="admin.php">Admin</a>
-         <?php } ?>
-         
          </li>
          <li>       
         <?php 
               if(isset( $_SESSION['usertype']) && $_SESSION['usertype']=='admin'){
           ?>
-      <a class="nav-link px-2 text-white" href="gallery.php">Category List</a>
+      <a class="nav-link px-2 text-white" href="userprofile.php">User Profile </a>
+      <?php } ?>  
+         </li>
+         <li>       
+        <?php 
+              if(isset( $_SESSION['usertype']) && $_SESSION['usertype']=='admin'){
+          ?>
+      <a class="nav-link px-2 text-white" href="newimage.php">Add Image </a>
       <?php } ?>  
          </li>
 </ul>

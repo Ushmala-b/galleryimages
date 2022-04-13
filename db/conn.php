@@ -1,6 +1,6 @@
 <?php
      $host = '127.0.0.1';
-     $db = 'galleryimage_db';
+     $db = 'gallerys_db';
      $user ='root';
      $pass = '';
      $charset ='utf8mb4';

@@ -14,21 +14,19 @@
     public function getuser($username,$password){
      
         try{
-            
           $sql=  "SELECT *  FROM `userprofile` WHERE `emailaddress`='$username' and `password`='$password'";
           $stmt =$this->db->prepare($sql);
           $stmt->execute();
           $result =$stmt->fetch();
-  
           return $result;
          }
          catch (PDOException $e) {
           echo $e->getMessage();
           return false;
-      }
+         }
          }  
 
- 
+
     public function insertuser($username,$password){
             try {
                 $result = $this->getuserbyusername($username);
@@ -36,15 +34,15 @@
                     return false;
                 } else{
                     $new_password = md5($password.$username);
-                    // define sql statement to be executed
+           
                     $sql = "INSERT INTO userprofile WHERE `emailaddress`='$username' and `password`='$password'";
-                    //prepare the sql statement for execution
+                   
                     $stmt = $this->db->prepare($sql);
-                    // bind all placeholders to the actual values
+              
                     $stmt->bindparam($username,$username);
                     $stmt->bindparam($password,$new_password);
                     
-                    // execute statement
+                  
                     $stmt->execute();
                     return true;
                 }
